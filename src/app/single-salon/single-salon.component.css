@@ -1,0 +1,15 @@
+a {
+  color: navy;
+}
+a:visited{
+  color: navy;
+}
+a:hover{
+  text-decoration: none;
+}
+img {
+  border-radius: 8px;
+}
+mat-form-field {
+  margin-right: 12px;
+}

@@ -1,0 +1,12 @@
+<div style="text-align: center;">
+  <h3>Знайдено {{salons.length}} cалонів</h3>
+  <h2>Брови та Вії</h2>
+  <div *ngFor="let salon of salons">
+    <img [src]="salon.image" style="width: 450px; height: 200px;border-radius: 8px;" routerLink="/salons/eyebrows/{{salon.id}}">
+    <br/>
+    <h4>{{salon.title}}</h4>
+    {{salon.city}}, {{salon.address}}
+    <br/>
+    <br/>
+  </div>
+</div>
