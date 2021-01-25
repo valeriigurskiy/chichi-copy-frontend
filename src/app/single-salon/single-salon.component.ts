@@ -26,6 +26,11 @@ export class SingleSalonComponent implements OnInit {
     this.httpClient.get<Service[]>('http://localhost:8080/services/salon/' + this.id).subscribe(value => this.services = value);
   }
 
+  toOrderList(id, name, price, duration, salon, image){
+    const services = {'id' : id, 'name' : name, 'price' : price, 'duration' : duration, 'salon' : salon, 'image' : image};
+    sessionStorage.setItem('service' + id, JSON.stringify(services));
+  }
+
   ngOnInit(): void {
   }
 

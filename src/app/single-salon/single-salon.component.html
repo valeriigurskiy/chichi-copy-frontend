@@ -22,7 +22,7 @@
               <h5 class="card-title">{{service.name}}</h5>
               <p class="card-text">Тривалість: {{service.duration}} хв.</p>
               <p class="card-text">Ціна: {{service.price}}₴</p>
-              <button type="button" class="btn btn-outline-danger" style="border-radius: 20px;">+</button>
+              <button type="button" class="btn btn-outline-danger" style="border-radius: 20px;" (click)="toOrderList(service.id, service.name, service.price, service.duration, salon.title, salon.image)">+</button>
             </div>
           </div>
         </div>

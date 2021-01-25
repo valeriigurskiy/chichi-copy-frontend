@@ -1,1 +1,11 @@
-<p>orders works!</p>
+<div *ngFor="let service of services" style="display: inline-block;">
+  <div class="card border-dark mb-3" style="max-width: 18rem;">
+    <h4 class="card-header">{{service.salon}}</h4>
+    <div class="card-body text-dark">
+      <h5 class="card-title">{{service.name}}</h5>
+      <p class="card-text">Ціна: {{service.price}}</p>
+      <p class="card-text">Тривалість: {{service.duration}}</p>
+      <button class="btn btn-danger" (click)="deleteOrder(service.id);">Видалити замовлення</button>
+    </div>
+  </div>
+</div>
