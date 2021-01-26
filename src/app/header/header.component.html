@@ -1,0 +1,37 @@
+
+<header>
+  <nav class ="navbar navbar-expand-md navbar-light bg-light justify-content-center">
+    <ul class="navbar-nav" style="justify-content: center; font-size: 16px">
+      <li><a routerLink="/" class="nav-link">Головна</a></li>
+      <li><a routerLink="/salons/barber" class="nav-link">Барбер</a></li>
+      <li><a routerLink="/salons/hair" class="nav-link">Волосся</a></li>
+      <li><a routerLink="/salons/nails" class="nav-link">Нігті</a></li>
+      <li><a routerLink="/salons/eyebrows" class="nav-link">Брови та Вії</a></li>
+      <li><a routerLink="/salons/makeup" class="nav-link">Макіяж</a></li>
+      <li><a routerLink="/salons/face" class="nav-link">Обличчя</a></li>
+      <li><a routerLink="/salons/depilation" class="nav-link">Видалення волосся</a></li>
+      <li><a routerLink="/salons/massage" class="nav-link">Масаж</a></li>
+      <li><a routerLink="/orders" class="nav-link">Замовлення</a></li>
+      <div class="row" *ngIf="!hiddenSearch">
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <input class="form-control" type="search" name="name" id="dropdownBasic1" ngbDropdownToggle [(ngModel)]="name" (ngModelChange)="search()" placeholder="Пошук послуг"/>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" [hidden]="hidden">
+              <table class="table table-striped">
+                <thead>
+                </thead>
+                <tbody>
+                <tr *ngFor="let search of result.slice(0, 4);">
+                  <td>
+                    <a routerLink="salons/{{search.type}}">{{search.name}}</a>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
+  </nav>
+</header>

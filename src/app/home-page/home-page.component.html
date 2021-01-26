@@ -1,0 +1,125 @@
+<div style="margin-top: 2%; margin-bottom: 1%; text-align: center; justify-content: space-between; border-bottom: 1px solid;">
+  <div>
+    <h3>Бронюй послуги в найкращих салонах миттєво</h3>
+  </div>
+  <div>
+    <img src="https://chichi.com.ua/assets/img/pages/home/top-block.png"/>
+    <br/>
+    <br/>
+  </div>
+</div>
+<!--carousel-->
+<div style="width: 700px; height: 330px; margin: auto">
+  <ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img routerLink="/salons/barber/1" [src]="images[0]" alt="Random slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Frisor Lemberg</h3>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img routerLink="/salons/barber/2" [src]="images[1]" alt="Random slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>H4</h3>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img routerLink="/salons/barber/4" [src]="images[2]" alt="Random slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Crystal</h3>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img routerLink="/salons/barber/3" [src]="images[3]" alt="Random slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Студія краси Романи Сокач</h3>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
+<br/>
+<!--як це працює-->
+<div class="outline" style="background-image: url(https://www.kindpng.com/picc/m/58-585986_transparent-background-dotted-line-hd-png-download.png)">
+  <br/>
+  <h3 style="text-align: center">Як це працює?</h3>
+  <div style="display: flex; margin-top: 1%; justify-content: space-evenly;">
+  <div class="card" style="height: 14rem; width: 18rem; margin-bottom: 2%">
+    <div class="card-body">
+      <h5 class="card-title">1. Шукай салон або барбершоп</h5>
+      <p class="card-text" style="font-size: 12px;">Вводь у пошуку назву салону або барбершопу та знаходь свій улюблений! Якщо ти шукаєш його вперше, тобі допоможуть відгуки, розташування та ціни.</p>
+      <a style="position: absolute; bottom: 0;">🔍</a>
+    </div>
+  </div>
+  <div class="card" style="height: 14rem; width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">2. Вибирай послуги</h5>
+    <p class="card-text" style="font-size: 12px;">В chichi є сотні послуг, від спа процедур до стрижок. Введи назву потрібної послуги у пошуку або вибери з верхнього меню.</p>
+    <a style="position: absolute; bottom: 0;">🏩</a>
+  </div>
+</div>
+  <div class="card" style="height: 14rem; width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">3. Майстра та вільні години</h5>
+    <p class="card-text" style="font-size: 12px;">В тебе є майстер? Ти впізнаєш його по фото і дізнаєшся його вільні години. Якщо ж збираєшся на послугу вперше, або ж твій майстер зайнятий на потрібну дату, ти завжди можеш обрати будь-якого вільного майстра.</p>
+    <a style="position: absolute; bottom: 0;">🛎</a>
+  </div>
+</div>
+  <div class="card" style="height: 14rem; width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">4. Отримуй підтвердження миттєво</h5>
+    <p class="card-text" style="font-size: 12px;">Після того, як ти підтверджуєш запис, його бачать у салоні. Враховуючи правила салону ти можеш скасувати його, або змінити деталі в особистому кабінеті. Оплата послуг відбувається безпосередньо після отримання послуг у салоні.</p>
+    <a style="position: absolute; bottom: 0;">😌</a>
+  </div>
+</div>
+  </div>
+</div>
+
+<div style="margin-top: 2%;">
+  <h3 style="text-align: center; margin-bottom: 1%">
+    Популярні салони
+  </h3>
+  <div class="card-group" style="margin-left: 5%; margin-right: 5%">
+    <div class="card">
+      <a routerLink="/salons/barber/1">
+        <img [src]="images[0]" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Frisor Lemberg</h5>
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a routerLink="/salons/barber/1">
+      <img [src]="images[1]" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">H4</h5>
+      </div>
+      </a>
+    </div>
+    <div class="card">
+      <a routerLink="/salons/barber/1">
+      <img [src]="images[2]" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Crystal</h5>
+      </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!--chichi app-->
+<div style="text-align: center; margin-left: auto; margin-right: auto; margin-top: 2%;">
+  <h3>chichi — сервіс для пошуку та онлайн бронювання послуг краси.</h3>
+  <img src="https://chichi.com.ua/assets/img/pages/home/mobile-phone.png"/>
+  <br/>
+  <a href="https://apps.apple.com/ua/app/chichi-%D0%B1%D1%80%D0%BE%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%BA%D1%80%D0%B0%D1%81%D0%B8/id1464376504" target="_blank"><img src="https://chichi.com.ua/assets/img/store-button-app-store-badge-us-black.png"/></a>
+  <a style="margin-left: 1%" href="https://play.google.com/store/apps/details?id=ua.chichi" target="_blank"><img src="https://chichi.com.ua/assets/img/store-button-google-play-badge-us-black.png"/></a>
+</div>
+
