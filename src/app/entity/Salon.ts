@@ -1,6 +1,6 @@
 export class Salon{
   id: number;
-  title: string;
+  name: string;
   description: string;
   city: string;
   address: string;

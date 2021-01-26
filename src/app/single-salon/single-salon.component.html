@@ -1,12 +1,12 @@
 <div style="text-align: center; max-width: 1000px; margin-left: auto; margin-right: auto;">
   <img [src]="salon.image" style="width: 630px; height: 280px;"/>
   <div>
-    <h4>{{salon.title}}</h4>
+    <h4>{{salon.name}}</h4>
     {{salon.city}}, {{salon.address}}
     <br/>
     <img src="https://i.pinimg.com/originals/f3/2d/98/f32d9837fedc6c5a3e25a456772780e4.png" style="width: 25px;height: 25px"/> <a href="https://www.instagram.com/{{salon.instagram}}" target="_blank">@{{salon.instagram}}</a>
   </div>
-
+  <input class="form-control" type="text" name="name" [(ngModel)]="name" (ngModelChange)="search()" placeholder="Пошук послуг"/>
   <ngb-accordion #a="ngbAccordion" activeIds="custom-panel-1">
     <ngb-panel id="custom-panel-1">
       <ng-template ngbPanelHeader let-opened="opened">
@@ -42,6 +42,26 @@
       </ng-template>
     </ngb-panel>
   </ngb-accordion>
+<!--  <table class="table table-striped">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th scope="col">#</th>-->
+<!--      <th scope="col">Country</th>-->
+<!--      <th scope="col">Area</th>-->
+<!--      <th scope="col">Population</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr *ngFor="let service of services; index as i">-->
+<!--      <th scope="row">{{ i + 1 }}</th>-->
+<!--      <td>-->
+<!--        {{ service.name }}-->
+<!--      </td>-->
+<!--      <td>{{ service.price | number }}</td>-->
+<!--      <td>{{ service.duration | number }}</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
 </div>
 
 
