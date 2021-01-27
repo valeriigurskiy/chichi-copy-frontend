@@ -5,6 +5,7 @@ import {map, tap} from 'rxjs/operators';
 import {Service} from '../entity/Service';
 import {Order} from '../entity/Order';
 import {Router} from '@angular/router';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 const items = { ...sessionStorage };
 @Component({
   selector: 'app-orders',
@@ -14,8 +15,8 @@ const items = { ...sessionStorage };
 
 export class OrdersComponent implements OnInit {
   services: Order[] = [];
-  obj: any;
-  constructor(private title: Title, private router: Router) {
+
+  constructor(private title: Title, private router: Router, private httpClient: HttpClient) {
     this.title.setTitle('Мої замовлення');
     for ( let i = 0, len = sessionStorage.length; i < len; i++ ) {
       this.services.push(JSON.parse(sessionStorage.getItem(sessionStorage.key(i))));

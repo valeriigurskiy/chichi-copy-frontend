@@ -1,21 +1,11 @@
-
 <header>
   <nav class ="navbar navbar-expand-md navbar-light bg-light justify-content-center">
-    <ul class="navbar-nav" style="justify-content: center; font-size: 16px">
-      <li><a routerLink="/" class="nav-link">Головна</a></li>
-      <li><a routerLink="/salons/barber" class="nav-link">Барбер</a></li>
-      <li><a routerLink="/salons/hair" class="nav-link">Волосся</a></li>
-      <li><a routerLink="/salons/nails" class="nav-link">Нігті</a></li>
-      <li><a routerLink="/salons/eyebrows" class="nav-link">Брови та Вії</a></li>
-      <li><a routerLink="/salons/makeup" class="nav-link">Макіяж</a></li>
-      <li><a routerLink="/salons/face" class="nav-link">Обличчя</a></li>
-      <li><a routerLink="/salons/depilation" class="nav-link">Видалення волосся</a></li>
-      <li><a routerLink="/salons/massage" class="nav-link">Масаж</a></li>
-      <li><a routerLink="/orders" class="nav-link">Замовлення</a></li>
+    <ul class="navbar-nav" style="font-size: 16px">
+      <img routerLink="/" src="https://i.imgur.com/CIxr7vM.png" style="width: 88px; height: 34px; margin-top: 1%"/>
       <div class="row" *ngIf="!hiddenSearch">
         <div class="col">
           <div ngbDropdown class="d-inline-block">
-            <input class="form-control" type="search" name="name" id="dropdownBasic1" ngbDropdownToggle [(ngModel)]="name" (ngModelChange)="search()" placeholder="Пошук послуг"/>
+            <input class="form-control" style="width: 430px; height: 36px; margin-left: 2%; margin-top: 1%" type="search" name="name" id="dropdownBasic1" ngbDropdownToggle [(ngModel)]="name" (ngModelChange)="search()" placeholder="Введіть назву салону або послугу"/>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1" [hidden]="hidden">
               <table class="table table-striped">
                 <thead>
@@ -31,6 +21,25 @@
             </div>
           </div>
         </div>
+      </div>
+    </ul>
+  </nav>
+</header>
+<header>
+  <nav class ="navbar navbar-expand-md navbar-light bg-light justify-content-center">
+    <ul class="navbar-nav" style="justify-content: center; font-size: 16px">
+      <li><a routerLink="/salons/barber" class="nav-link">Барбер</a></li>
+      <li><a routerLink="/salons/hair" class="nav-link">Волосся</a></li>
+      <li><a routerLink="/salons/nails" class="nav-link">Нігті</a></li>
+      <li><a routerLink="/salons/eyebrows" class="nav-link">Брови та Вії</a></li>
+      <li><a routerLink="/salons/makeup" class="nav-link">Макіяж</a></li>
+      <li><a routerLink="/salons/face" class="nav-link">Обличчя</a></li>
+      <li><a routerLink="/salons/depilation" class="nav-link">Видалення волосся</a></li>
+      <li><a routerLink="/salons/massage" class="nav-link">Масаж</a></li>
+      <li><a routerLink="/orders" *ngIf="authorized" class="nav-link">Замовлення</a></li>
+      <li><a routerLink="/logout" *ngIf="authorized" class="nav-link">Вийти</a></li>
+      <div *ngIf="!authorized">
+        <li><a routerLink="/login" class="nav-link">Логін</a></li>
       </div>
     </ul>
   </nav>

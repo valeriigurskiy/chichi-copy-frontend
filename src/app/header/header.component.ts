@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   services: Service[];
   salons: Salon[];
   hiddenSearch = false;
-
+  authorized: boolean;
   constructor(private httpClient: HttpClient, private router: Router) {
     this.httpClient.get<Service[]>('http://localhost:8080/services').subscribe(value => {
       this.result = value;
@@ -29,9 +29,14 @@ export class HeaderComponent implements OnInit {
         this.result.push(value1);
       });
     });
+    if (localStorage.getItem('token')){
+      this.authorized = true;
+    } else {
+      this.authorized = false;
+    }
   }
 
-  refreshCountries() {
+  refresh() {
     this.result = this.result
       .map((country, i) => ({id: i + 1, ...country}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
@@ -62,7 +67,7 @@ export class HeaderComponent implements OnInit {
         this.result.push(value1);
       });
     });
-    this.refreshCountries();
+    this.refresh();
   }
 
 }

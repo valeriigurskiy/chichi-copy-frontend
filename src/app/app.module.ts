@@ -7,7 +7,7 @@ import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import { SingleSalonComponent } from './single-salon/single-salon.component';
 import { HeaderComponent } from './header/header.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {SalonsComponent} from './salons/salons.component';
@@ -23,6 +23,8 @@ import { OrdersComponent } from './orders/orders.component';
 import { FaqComponent } from './faq/faq.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PrivacyTermsComponent } from './privacy-terms/privacy-terms.component';
+import { LoginComponent } from './login/login.component';
+import { LogOutComponent } from './log-out/log-out.component';
 
 const routers = [
   {
@@ -69,6 +71,12 @@ const routers = [
   },
   {
     path: 'privacy-terms', component: PrivacyTermsComponent
+  },
+  {
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: 'logout', component: LogOutComponent
   }
   ];
 
@@ -91,7 +99,9 @@ const routers = [
     OrdersComponent,
     FaqComponent,
     AboutUsComponent,
-    PrivacyTermsComponent
+    PrivacyTermsComponent,
+    LoginComponent,
+    LogOutComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +112,8 @@ const routers = [
     HttpClientModule,
     FormsModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

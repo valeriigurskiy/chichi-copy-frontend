@@ -1,0 +1,21 @@
+<div style="text-align: center; margin-top: 10%; margin-bottom: 10%" *ngIf="mailSended == false">
+  <form [formGroup]="userEmails">
+    <h4>Введіть вашу електронну пошту</h4>
+    <h5>(згодом на неї прийде код активації)</h5>
+    <br/>
+    <input type="email" class="form-control" formControlName="email" style="width: 208px; margin-left: auto; margin-right: auto"/>
+    <br/>
+    <button [disabled] = "userEmails.get('email').errors?.email || !userEmails.get('email').touched" type="button" class="btn btn-success" (click)="sendToken()">Відправити код активації</button>
+  </form>
+</div>
+
+<div style="text-align: center; margin-top: 10%; margin-bottom: 10%" *ngIf="mailSended">
+  <h4>Введіть код авторизації</h4>
+  <br/>
+  <br/>
+  <input type="text" style="width: 208px; margin-left: auto; margin-right: auto" #input/>
+  <br/>
+  <div *ngIf="incorrectAuthCode || authCode === 0">Невірний код авторизації</div>
+  <br/>
+  <button type="button" class="btn btn-success" (click)="login(input.value)">Увійти</button>
+</div>
