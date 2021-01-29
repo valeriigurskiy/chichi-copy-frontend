@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {Service} from '../entity/Service';
 import {Salon} from '../entity/Salon';
@@ -15,7 +15,7 @@ export class SingleSalonComponent implements OnInit {
   services: Service[];
   salon: Salon;
   name: string;
-  constructor(private activatedRoute: ActivatedRoute, private httpClient: HttpClient, private title: Title) {
+  constructor(private activatedRoute: ActivatedRoute, private httpClient: HttpClient, private title: Title, private router: Router) {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.id = params.id;
     });
@@ -27,9 +27,13 @@ export class SingleSalonComponent implements OnInit {
     this.httpClient.get<Service[]>('http://localhost:8080/services/salon/' + this.id).subscribe(value => this.services = value);
   }
 
-  toOrderList(id, name, price, duration, salon, image){
-    const services = {id : id, name : name, price : price, duration : duration, salon : salon, image : image};
-    sessionStorage.setItem('service' + id, JSON.stringify(services));
+  toOrderList (id, name, price, duration, salon, image){
+    if (localStorage.getItem('token')){
+      const services = {id : id, name : name, price : price, duration : duration, salon : salon, image : image};
+      sessionStorage.setItem('service' + id, JSON.stringify(services));
+    } else {
+      this.router.navigate(['login']);
+    }
   }
 
   search(){

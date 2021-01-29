@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {Service} from '../entity/Service';
 import {Salon} from '../entity/Salon';
+import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {FormControl, FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -20,7 +22,21 @@ export class HeaderComponent implements OnInit {
   salons: Salon[];
   hiddenSearch = false;
   authorized: boolean;
-  constructor(private httpClient: HttpClient, private router: Router) {
+  closeResult = '';
+  selectedValue: any;
+  types = [
+    {title: 'Барбер', title_eng: 'barber'},
+    {title: 'Волосся', title_eng: 'hair'},
+    {title: 'Нігті', title_eng: 'nails'},
+    {title: 'Брови та вії', title_eng: 'eyebrows'},
+    {title: 'Макіяж', title_eng: 'makeup'},
+    {title: 'Обличчя', title_eng: 'face'},
+    {title: 'Видалення волосся', title_eng: 'depilation'},
+    {title: 'Масаж', title_eng: 'massage'}
+  ];
+  form: FormGroup;
+
+  constructor(private httpClient: HttpClient, private router: Router, private modalService: NgbModal) {
     this.httpClient.get<Service[]>('http://localhost:8080/services').subscribe(value => {
       this.result = value;
     });
@@ -34,6 +50,13 @@ export class HeaderComponent implements OnInit {
     } else {
       this.authorized = false;
     }
+    this.form = new FormGroup({
+      type: new FormControl(null)
+    });
+  }
+
+  get type(): string {
+    return this.form ? this.form.get('type').value : '';
   }
 
   refresh() {
@@ -70,4 +93,25 @@ export class HeaderComponent implements OnInit {
     this.refresh();
   }
 
+  addSalon(name, description, city, address, instagram, type, image){
+    const salon = { name: name,
+      description: description,
+      city: city,
+      address: address,
+      comments: ' ',
+      instagram: instagram,
+      type: type,
+      image: image
+    };
+    this.httpClient.post('http://localhost:8080/salons', salon).subscribe(value => console.log(value));
+    // console.log(name, description, city, address, comments, instagram, type, image);
+  }
+
+  log(type){
+    console.log(type);
+  }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
+  }
 }
