@@ -1,12 +1,28 @@
+<div *ngFor="let employee of employees" style="display: inline-block">
+  <div class="card text-white bg-dark mb-3" style="max-width: 10rem; text-align: center">
+    <div class="card-header">{{employee.role}}</div>
+    <div class="card-body">
+      <h5 class="card-title">{{employee.name}}</h5>
+      <button type="button" class="btn btn-success">Вибрати</button>
+    </div>
+  </div>
+</div>
 <div *ngFor="let service of services" style="display: inline-block;">
   <div class="card border-dark mb-3" style="max-width: 18rem;">
-    <h4 class="card-header">{{service.salon}}</h4>
+    <h5 class="card-header">{{service.name}}</h5>
     <div class="card-body text-dark">
-      <h5 class="card-title">{{service.name}}</h5>
-      <p class="card-text">Ціна: {{service.price}}</p>
-      <p class="card-text">Тривалість: {{service.duration}}</p>
+      <h6 class="card-text">Ціна: {{service.price}}</h6>
+      <h6 class="card-text">Тривалість: {{service.duration}}</h6>
       <button class="btn btn-danger" (click)="deleteOrder(service.id);">Видалити замовлення</button>
     </div>
+  </div>
+</div>
+<div class="card border-dark mb-3" style="max-width: 18rem;">
+  <h5 class="card-header">До сплати: {{resultSum}}₴</h5>
+  <div class="card-body text-dark">
+    <h6 class="card-text" *ngFor="let service of resultServices">
+      {{service}}
+    </h6>
   </div>
 </div>
 <div *ngIf="services.length == 0" style="text-align: center">

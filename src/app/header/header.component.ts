@@ -45,11 +45,7 @@ export class HeaderComponent implements OnInit {
         this.result.push(value1);
       });
     });
-    if (localStorage.getItem('token')){
-      this.authorized = true;
-    } else {
-      this.authorized = false;
-    }
+    this.authorized = !!localStorage.getItem('token');
     this.form = new FormGroup({
       type: new FormControl(null)
     });

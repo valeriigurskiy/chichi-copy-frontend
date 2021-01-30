@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Service} from '../entity/Service';
 import {Salon} from '../entity/Salon';
 import {Title} from '@angular/platform-browser';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-single-salon',
@@ -15,7 +16,9 @@ export class SingleSalonComponent implements OnInit {
   services: Service[];
   salon: Salon;
   name: string;
-  constructor(private activatedRoute: ActivatedRoute, private httpClient: HttpClient, private title: Title, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private httpClient: HttpClient,
+              private title: Title, private router: Router,
+              private modalService: NgbModal) {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.id = params.id;
     });
@@ -34,6 +37,21 @@ export class SingleSalonComponent implements OnInit {
     } else {
       this.router.navigate(['login']);
     }
+  }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
+  }
+
+  addService(name, price, duration){
+    const service = {
+      name: name,
+      type: this.salon.type,
+      price: price,
+      salon: this.id,
+      duration: duration
+    };
+    this.httpClient.post('http://localhost:8080/services', service).subscribe(value => console.log(value));
   }
 
   search(){
