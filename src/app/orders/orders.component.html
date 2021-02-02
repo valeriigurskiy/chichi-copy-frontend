@@ -17,7 +17,7 @@
     </div>
   </div>
 </div>
-<div class="card border-dark mb-3" style="max-width: 18rem;">
+<div class="card border-dark mb-3" style="max-width: 18rem;" *ngIf="resultSum != null">
   <h5 class="card-header">До сплати: {{resultSum}}₴</h5>
   <div class="card-body text-dark">
     <h6 class="card-text" *ngFor="let service of resultServices">

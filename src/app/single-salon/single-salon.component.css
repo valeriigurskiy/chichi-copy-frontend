@@ -13,3 +13,12 @@ img {
 mat-form-field {
   margin-right: 12px;
 }
+.commentTextArea {
+  width: 500px;
+  resize: none;
+}
+.authorTextArea{
+  width: 200px;
+  height: 30px;
+  resize: none;
+}
